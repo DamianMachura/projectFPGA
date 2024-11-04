@@ -1,0 +1,100 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity UltrasonicRangefinder_Measurement is
+    Port ( clk : in STD_LOGIC;
+           trigger : in STD_LOGIC;
+           echo : in STD_LOGIC;
+           step : out STD_LOGIC;
+           direction : out STD_LOGIC;
+           distance : Buffer INTEGER;
+           obstacle_detected : out STD_LOGIC);
+end UltrasonicRangefinder_Measurement;
+
+architecture Behavioral of UltrasonicRangefinder_Measurement is
+    signal start_measurement : STD_LOGIC := '0';
+    signal stop_measurement : STD_LOGIC := '0';
+    signal measurement_done : STD_LOGIC := '0';
+    signal echo_pulse_duration : INTEGER := 0;
+    constant speed_of_sound : real := 343.0; -- Prędkość dźwięku w m/s
+    signal scan_direction : STD_LOGIC := '0'; -- 0 - w jedną stronę, 1 - w drugą stronę
+    signal step_counter : INTEGER := 0; -- Licznik kroków silnika
+    signal steps_per_scan : INTEGER := 100; -- Liczba kroków na jedno skanowanie
+	 --signal distance : INTEGER := 0; -- Zmiana trybu na buffer, aby umożliwić odczyt w procesie
+
+
+begin
+    process (clk)
+    begin
+        if rising_edge(clk) then
+            if trigger = '1' then
+                start_measurement <= '1';
+                stop_measurement <= '0';
+            elsif rising_edge(echo) then
+                if start_measurement = '1' then
+                    start_measurement <= '0';
+                    stop_measurement <= '1';
+                end if;
+            end if;
+
+            if stop_measurement = '1' then
+                measurement_done <= '1';
+            else
+                measurement_done <= '0';
+            end if;
+        end if;
+    end process;
+
+    process (clk)
+    begin
+        if rising_edge(clk) then
+            if rising_edge(echo) then
+                if measurement_done = '1' then
+                    echo_pulse_duration <= 0;
+                else
+                    echo_pulse_duration <= echo_pulse_duration + 1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (clk)
+    begin
+        if rising_edge(clk) then
+            if measurement_done = '1' then
+                step <= '1';
+                if scan_direction = '0' then
+                    direction <= '0'; -- Skanowanie w jedną stronę
+                else
+                    direction <= '1'; -- Skanowanie w drugą stronę
+                end if;
+
+                step_counter <= step_counter + 1;
+                if step_counter = steps_per_scan then
+                    scan_direction <= not scan_direction; -- Zmiana kierunku skanowania po osiągnięciu liczby kroków
+                    step_counter <= 0;
+                    measurement_done <= '0'; -- Przygotowanie do następnego pomiaru
+                end if;
+            else
+                step <= '0';
+            end if;
+        end if;
+    end process;
+
+    process (echo_pulse_duration)
+    begin
+        distance <= integer( real(echo_pulse_duration) * speed_of_sound / 2.0 / 1000000.0); -- Odległość w metrach
+    end process;
+
+    process (distance)
+    begin
+        if distance < 10 then -- Przykładowy próg odległości, poniżej którego uznajemy, że przeszkoda jest wykryta
+            obstacle_detected <= '1';
+        else
+            obstacle_detected <= '0';
+        end if;
+    end process;
+
+end Behavioral;

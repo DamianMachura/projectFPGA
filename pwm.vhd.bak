@@ -1,0 +1,55 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+entity pwm is
+--generic(N : integer:=7);
+port(
+CLOCK_50: in std_logic;
+duty: in std_logic_vector(15 downto 0);
+pwm : out std_logic);
+--GPIO_0:out std_logic_vector(2 downto 0);
+--LEDR: out std_logic_vector(15 downto 0);
+--SW: in std_logic_vector(0 downto 0));
+end pwm;
+16
+architecture behaviour of pwm is
+component clkdiv is
+port(
+clock_50:in std_logic;
+clr: in std_logic;
+clock_q:out std_logic);
+end component;
+signal count: std_logic_vector(15 downto 0);
+signal clk,pwm_sig: std_logic;
+--signal duty:std_logic_vector(15 downto 0);
+signal period :std_logic_vector(15 downto 0);
+signal clr:std_logic;
+begin
+--clk <=clock_50;
+--duty <= X"0001";
+period <= X"00C3";
+clr <= '0';
+process(clk,clr)
+begin
+if (clr='1') then
+count<=X"0000";
+elsif (clk'event and clk='1') then
+if (count=period-1) then
+count<=X"0000";
+else
+count<= count+1;
+end if;
+end if;
+end process;
+process(count)
+begin
+if (count < duty) then
+pwm_sig <='1';
+elsif(count > duty) then
+pwm_sig <='0';
+end if;
+end process;
+pwm <= pwm_sig;
+CLOCK:clkdiv port map(clock_50,'0',clk); -- divide 50Mhz clock to
+clk_q6
+end architecture
