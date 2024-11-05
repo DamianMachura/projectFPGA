@@ -1,0 +1,36 @@
+{C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd} {1 {vcom -work pwm_servo_64khz_tb -2002 -explicit -stats=none {C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity servo_pwm_clk64kHz
+-- Compiling architecture Behavioral of servo_pwm_clk64kHz
+
+} {} {}} {C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/Entity servo_pwm_clk64kHz is.vhd} {1 {vcom -work pwm_servo_64khz_tb -2002 -explicit -stats=none {C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/Entity servo_pwm_clk64kHz is.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity servo_pwm_clk64khz_tb
+-- Compiling architecture behavioral of servo_pwm_clk64khz_tb
+
+} {} {}} {C:/Users/damia/OneDrive/Desktop/projek FPGAt/sin_table.vhd} {1 {vcom -work pwm_servo_64khz_tb -2002 -explicit -stats=none {C:/Users/damia/OneDrive/Desktop/projek FPGAt/sin_table.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity sin_table
+-- Compiling architecture rtl of sin_table
+
+} {} {}} {C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/clk64kHz.vhd} {1 {vcom -work pwm_servo_64khz_tb -2002 -explicit -stats=none {C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/clk64kHz.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity clk64kHz
+-- Compiling architecture Behavioral of clk64kHz
+
+} {} {}}

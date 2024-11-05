@@ -1,0 +1,49 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity RangeSensor is
+    Port (
+        fpgaclk : in  std_logic;
+		  pulse : in STD_LOGIC;
+		  triggerOut : STD_LOGIC;-- Pulse width signal from the range sensor
+        meters    : out std_logic_vector(3 downto 0)
+		  decimeters    : out std_logic_vector(3 downto 0)
+        centimeters    : out std_logic_vector(3 downto 0)		  -- Distance output in some unit
+    );
+end RangeSensor;
+
+architecture Behavioral of RangeSensor is
+component Distance_calculation is
+    Port ( clk : in STD_LOGIC;
+           Calculation_Reset : in STD_LOGIC;
+			  Pulse : in STD_LOGIC;
+			  distance : out STD_LOGIC_VECTOR( 8 downto 0));
+end component;
+component Trigger_Generator is
+    Port (
+        clk : in  std_logic;    -- Clock input
+        trigger  : out std_logic     -- Trigger pulse output
+    );
+end component;
+component BCDConverter is
+    Port (
+        Distance_input : in  std_logic_vector(8 downto 0);
+        hundreds   : out std_logic_vector(3 downto 0);
+		  tens   : out std_logic_vector(3 downto 0);
+		  unit   : out std_logic_vector(3 downto 0)
+    );
+end component;
+
+signal distanceOut : STD_LOGIC_VECTOR(8 downto 0);
+signal triggOut : STD_LOGIC;
+
+begin
+    trigger_gen : Trigger_Generator port map(fpgaclk, triggOut);
+	 PulseWidth : Distance_calculation port map(fpgaclk, triggOut, pulse, distanceOut);
+    BCDconv : BCDConverter port map(distanceOut, meters, decimeters, centimeters);
+	 triggerOut <= triggOut;
+
+
+end Behavioral;

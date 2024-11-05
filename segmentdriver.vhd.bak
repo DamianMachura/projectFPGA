@@ -1,0 +1,108 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_unsigned.all;
+
+
+entity segmentdriver is
+    Port ( Display_A : in STD_LOGIC_VECTOR (3 downto 0);
+			  Display_B : in STD_LOGIC_VECTOR (3 downto 0);
+	        Display_C : in STD_LOGIC_VECTOR (3 downto 0);
+	        Display_D : in STD_LOGIC_VECTOR (3 downto 0);
+           seg_A: out STD_LOGIC;
+			  seg_B: out STD_LOGIC;
+			  seg_C: out STD_LOGIC;
+		     seg_D: out STD_LOGIC;
+	        seg_E: out STD_LOGIC;
+           seg_F: out STD_LOGIC;
+           seg_G: out STD_LOGIC;
+			  select_Display_A: out STD_LOGIC;
+			  select_Display_B: out STD_LOGIC;
+			  select_Display_C: out STD_LOGIC;
+			  select_Display_D: out STD_LOGIC);
+end segmentdriver;
+
+architecture Behavioral of segmentdriver is
+	
+	Component segmentDecoder
+	Port ( Digit : in STD_LOGIC_VECTOR (3 downto 0);
+           segment_A: out STD_LOGIC;
+			  segment_B: out STD_LOGIC;
+			  segment_C: out STD_LOGIC;
+		     segment_D: out STD_LOGIC;
+	        segment_E: out STD_LOGIC;
+           segment_F: out STD_LOGIC;
+           segment_G: out STD_LOGIC);
+	end component;
+	Component clock_Divider
+	Port ( clk   : in  std_logic;
+		    enable : in STD_LOGIC;
+          reset : in  std_logic;
+          data_clk : out std_logic_vector(15 downto 0));
+	end component;
+	Signal temporary_data : std_logic_vector (3 downto 0);
+	Signal clock_word : std_logic_vector (15 downto 0);
+	Signal slow_clock : std_logic;
+	
+	begin
+		
+			uut: segmentDecoder Port Map(
+			  Digit => temporary_data,
+           segment_A => seg_A,
+			  segment_B => seg_B,
+			  segment_C => seg_C,
+		     segment_D => seg_D,
+	        segment_E => seg_E,
+           segment_F => seg_F,
+           segment_G => seg_G
+			);
+			uut1: clock_divider Port Map(
+			  clk => clk,
+           enable => '1',
+			  reset => '0',
+			  data_clk => clock_word
+			);
+			
+	Process(slow_clock)
+	variable Display_Selection: std_logic_vector (1 downto 0);
+	Begin
+	if slow_clock'event and slow_cloc = '1' then
+	
+	case display_Selection is
+	
+	when "00" => temporary_data <= display_A;
+	
+			  select_Display_A <= '0';
+			  select_Display_B <= '1';
+			  select_Display_C <= '1';
+			  select_Display_D <= '1';
+			  
+			  display_selection := display_selection + '1';
+	when "01" => temporary_data <= display_B;
+	
+			  select_Display_A <= '1';
+			  select_Display_B <= '0';
+			  select_Display_C <= '1';
+			  select_Display_D <= '1';
+			  
+			  display_selection := display_selection + '1';
+	when "10" => temporary_data <= display_C;
+	
+			  select_Display_A <= '1';
+			  select_Display_B <= '1';
+			  select_Display_C <= '0';
+			  select_Display_D <= '1';
+			  
+			  display_selection := display_selection + '1';
+	when "0=11" => temporary_data <= display_D;
+	
+			  select_Display_A <= '1';
+			  select_Display_B <= '1';
+			  select_Display_C <= '1';
+			  select_Display_D <= '0';
+			  
+			  display_selection := display_selection + '1';
+	end if;
+	
+	end process;
+	
+end segmentdriver;

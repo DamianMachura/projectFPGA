@@ -1,0 +1,181 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/damia/OneDrive/Desktop/projek FPGAt/simulation/modelsim
+Eclk64khz
+Z1 w1725284258
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z4 8C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/clk64kHz.vhd
+Z5 FC:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/clk64kHz.vhd
+l0
+L4 1
+V;l1ch10YQXg]JCD<LVJXg1
+!s100 z7NZJ5?MTY@@M9Ce9k_ZM1
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1730116569
+!i10b 1
+Z8 !s108 1730116569.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/clk64kHz.vhd|
+Z10 !s107 C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/clk64kHz.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+DEx4 work 8 clk64khz 0 22 ;l1ch10YQXg]JCD<LVJXg1
+!i122 1
+l16
+L13 20
+V[7Qh?iNL=fLz88LHI@IS<2
+!s100 9W3bf_jDO_RSdlgVenKbj3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eservo_pwm_clk64khz
+Z13 w1730110587
+Z14 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z15 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R2
+R3
+!i122 2
+R0
+Z16 8C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd
+Z17 FC:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd
+l0
+L7 1
+V1_TPcW;2cE85ZhgKmKGzR2
+!s100 f78ed_o<R9QhF?jkXkk[l0
+R6
+32
+R7
+!i10b 1
+R8
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd|
+Z19 !s107 C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R14
+R15
+R2
+R3
+DEx4 work 18 servo_pwm_clk64khz 0 22 1_TPcW;2cE85ZhgKmKGzR2
+!i122 2
+l61
+L15 86
+Vih^YacT3Shad28ha4N[nY2
+!s100 ]dUYcc]4mJ?SQ[:1YPz9e2
+R6
+32
+R7
+!i10b 1
+R8
+R18
+R19
+!i113 1
+R11
+R12
+Eservo_pwm_clk64khz_tb
+Z20 w1730116051
+R2
+R3
+!i122 3
+R0
+Z21 8C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz_tb.vht
+Z22 FC:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz_tb.vht
+l0
+L4 1
+VST`eFHGJOk[;j<0VjO^XL3
+!s100 6JjVbE5f[C:EB=g6J;GK<0
+R6
+32
+Z23 !s110 1730116570
+!i10b 1
+Z24 !s108 1730116570.000000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz_tb.vht|
+!s107 C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz_tb.vht|
+!i113 1
+R11
+R12
+Abehavioral
+R2
+R3
+DEx4 work 21 servo_pwm_clk64khz_tb 0 22 ST`eFHGJOk[;j<0VjO^XL3
+!i122 3
+l21
+L7 25
+VT0EI?aI1VbTW=>5;7X^BQ2
+!s100 Z1z[zzT^7bjk35bY9jPM?0
+R6
+32
+R23
+!i10b 1
+R24
+R25
+Z26 !s107 C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz_tb.vht|
+!i113 1
+R11
+R12
+Esin_table
+Z27 w1728297891
+Z28 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R2
+R3
+!i122 0
+R0
+Z29 8C:/Users/damia/OneDrive/Desktop/projek FPGAt/sin_table.vhd
+Z30 FC:/Users/damia/OneDrive/Desktop/projek FPGAt/sin_table.vhd
+l0
+L4 1
+VGJ`gPXfh`k@beL@N3?LeP3
+!s100 Dg3AEogGF4JjNYXYD[MMO0
+R6
+32
+R7
+!i10b 1
+R8
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/damia/OneDrive/Desktop/projek FPGAt/sin_table.vhd|
+Z32 !s107 C:/Users/damia/OneDrive/Desktop/projek FPGAt/sin_table.vhd|
+!i113 1
+R11
+R12
+Artl
+R28
+R2
+R3
+DEx4 work 9 sin_table 0 22 GJ`gPXfh`k@beL@N3?LeP3
+!i122 0
+l16
+L10 15
+V_gd;:C?e1OfLejCnMgkY`3
+!s100 ]D95iHa@8WfgazW1bjR=;2
+R6
+32
+R7
+!i10b 1
+R8
+R31
+R32
+!i113 1
+R11
+R12

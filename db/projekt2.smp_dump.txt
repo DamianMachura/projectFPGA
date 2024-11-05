@@ -1,0 +1,25 @@
+
+State Machine - |Top_design|reading_state
+Name reading_state.TERMINATE reading_state.ACKNOWLEDGED reading_state.START reading_state.IDLE 
+reading_state.IDLE 0 0 0 0 
+reading_state.START 0 0 1 1 
+reading_state.ACKNOWLEDGED 0 1 0 1 
+reading_state.TERMINATE 1 0 0 1 
+
+State Machine - |Top_design|main_state
+Name main_state.READING_BUTTON_RST main_state.READING main_state.WRITING_ACK main_state.WRITING_CMD main_state.IDLE 
+main_state.IDLE 0 0 0 0 0 
+main_state.WRITING_CMD 0 0 0 1 1 
+main_state.WRITING_ACK 0 0 1 0 1 
+main_state.READING 0 1 0 0 1 
+main_state.READING_BUTTON_RST 1 0 0 0 1 
+
+State Machine - |Top_design|SDRAM:sdram_controller_instance|state
+Name state.REFRESH state.WRITE state.READ state.ACTIVE state.IDLE state.MODE state.INIT 
+state.INIT 0 0 0 0 0 0 0 
+state.MODE 0 0 0 0 0 1 1 
+state.IDLE 0 0 0 0 1 0 1 
+state.ACTIVE 0 0 0 1 0 0 1 
+state.READ 0 0 1 0 0 0 1 
+state.WRITE 0 1 0 0 0 0 1 
+state.REFRESH 1 0 0 0 0 0 1 

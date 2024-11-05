@@ -1,0 +1,46 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Distance_calculation is
+    Port ( clk : in STD_LOGIC;
+           Calculation_Reset : in STD_LOGIC;
+			  Pulse : in STD_LOGIC;
+			  distance : out STD_LOGIC_VECTOR( 8 downto 0)));
+end Distance_calculation;
+
+architecture Behavioral of Distance_calculation is
+component Counter is
+		generic(n: POSITIVE := 10);
+    Port (
+        clk   : in  std_logic;  -- Clock input
+		  enable : in STD_LOGIC;
+        reset : in  std_logic;  -- Reset input
+        count : out std_logic_vector(n-1 downto 0)  -- 4-bit counter output
+    );
+end component;
+
+Signal Pulse_width : STD_LOGIC_VECTOR(21 downto 0);
+
+begin
+CounterPulse : Counter generic map(22) port map(clk,pulse,not Calculation_Reset, Pulse_width);
+
+Distance_calculations: process(pulse)
+									variable result: integer;
+									variable multiplier : STD_LOGIC_VECTOR(23 downto 0)
+									
+									begin
+												if(pulse = '0') then
+															multiplier := Pulse_width * "11";
+															result := to_integer(unsigned(multiplier(23 downto 13)))
+																	if(result > 458) then
+																			distance <= "111111111";
+																		else
+																			distance <= STD_LOGIC_VECTOR(to_unasigned(result,9));
+																	end if;
+												end if;
+					end process Distance_calculations;
+    
+
+end Behavioral;

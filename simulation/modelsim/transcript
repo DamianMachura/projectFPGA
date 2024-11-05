@@ -1,0 +1,71 @@
+# Compile of sin_table.vhd was successful.
+# Compile of clk64kHz.vhd was successful.
+# Compile of servo_pwm_clk64kHz.vhd was successful.
+# Compile of servo_pwm_clk64kHz_tb.vht was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.servo_pwm_clk64khz_tb
+# vsim -gui work.servo_pwm_clk64khz_tb 
+# Start time: 12:57:14 on Oct 28,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.servo_pwm_clk64khz_tb(behavioral)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.servo_pwm_clk64khz(behavioral)
+# Loading work.clk64khz(behavioral)
+# ** Warning: (vsim-3473) Component instance "servo_pwm_map : pwm" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /servo_pwm_clk64khz_tb/servo File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd
+# ** Warning: (vsim-3473) Component instance "count_delay : Counter" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /servo_pwm_clk64khz_tb/servo File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd
+# Loading ieee.numeric_std(body)
+# Loading work.sin_table(rtl)
+# ** Warning: (vsim-8684) No drivers exist on out port /servo_pwm_clk64khz_tb/servo/servo, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /servo_pwm_clk64khz_tb/output.
+add wave -position end  sim:/servo_pwm_clk64khz_tb/output
+add wave -position end  sim:/servo_pwm_clk64khz_tb/clock
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
