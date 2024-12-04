@@ -1,0 +1,45 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity SoundSpeedROM is
+    Port (
+        clk : in STD_LOGIC;              -- sygnał zegarowy
+        address : in STD_LOGIC_VECTOR(3 downto 0); -- adres (4 bity, 16 pozycji)
+        data_out : out STD_LOGIC_VECTOR(15 downto 0) -- dane wyjściowe (16-bitowe wartości prędkości dźwięku)
+    );
+end SoundSpeedROM;
+
+architecture Behavioral of SoundSpeedROM is
+
+    -- ROM: wartości prędkości dźwięku (331.3 + 0.6 * T) w m/s (pomnożone przez 10 dla dokładności)
+    type ROM_Array is array (0 to 10) of STD_LOGIC_VECTOR(15 downto 0);
+    constant ROM : ROM_Array := (
+        "0000000101000111", -- 331.3 m/s (0°C -> 3313 po skalowaniu)
+        "0000000101010111", -- 334.3 m/s (5°C -> 3343)
+        "0000000101100111", -- 337.3 m/s (10°C -> 3373)
+        "0000000101110111", -- 340.3 m/s (15°C -> 3403)
+        "0000000110000111", -- 343.3 m/s (20°C -> 3433)
+        "0000000110010111", -- 346.3 m/s (25°C -> 3463)
+        "0000000110100111", -- 349.3 m/s (30°C -> 3493)
+        "0000000110110111", -- 352.3 m/s (35°C -> 3523)
+        "0000000111000111", -- 355.3 m/s (40°C -> 3553)
+        "0000000111010111", -- 358.3 m/s (45°C -> 3583)
+        "0000000111100111"  -- 361.3 m/s (50°C -> 3613)
+    );
+
+begin
+
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if to_integer(unsigned(address)) < 11 then
+                data_out <= ROM(to_integer(unsigned(address)));
+            else
+                data_out <= (others => '0'); -- zwróć zero, jeśli adres poza zakresem
+            end if;
+        end if;
+    end process;
+
+end Behavioral;

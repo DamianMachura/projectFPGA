@@ -1,1 +1,6 @@
 v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Range_Sensor:rangesensor|Distance_calculator:Pulse_width|lpm_mult:Mult1|mult_dft:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Range_Sensor:rangesensor|Distance_calculator:Pulse_width|lpm_mult:Mult1|mult_dft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Range_Sensor:rangesensor|Distance_calculator:Pulse_width|lpm_mult:Mult0|mult_mbt:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Range_Sensor:rangesensor|Distance_calculator:Pulse_width|lpm_mult:Mult0|mult_mbt:auto_generated|mac_out2,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,Range_Sensor:rangesensor|Distance_calculator:Pulse_width|lpm_mult:Mult0|mult_mbt:auto_generated|mac_mult3,

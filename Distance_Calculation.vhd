@@ -28,8 +28,19 @@ component Counter is
 	);
 end component;
 
+component SoundSpeedROM is
+    Port (
+        clk : in STD_LOGIC;              -- sygnał zegarowy
+        address : in integer range 0 to 50; -- adres 
+        data_out : out integer range 0 to 1000 -- dane wyjściowe 
+    );
+end component;
+
 -- Sygnał wewnętrzny do przechowywania szerokości impulsu
 signal Pulse_width : integer range 0 to 2**22;
+signal Sound_speed : integer range 0 to 1000;
+signal Temperature : integer range 0 to 50 := 20;
+constant clock_speed : integer := 50000000;
 
 begin
 
@@ -37,20 +48,19 @@ begin
 -- Licznik mierzy czas trwania impulsu 'pulse' otrzymanego z czujnika
 Counter_pulse : Counter 
 	generic map(2**22)                -- Zakres licznika ustawiony na 2^22
-	port map(clk, pulse, not Calculation_Reset, Pulse_width); 
+	port map(clk, pulse, not Calculation_Reset, Pulse_width);
+Sound_rom : SoundSpeedROM Port map (clk, Temperature, Sound_speed);	
 
 -- Proces obliczający odległość
 Distance_calculator : process(pulse)
 	
 	-- Zmienne pomocnicze do obliczeń
 	variable Result : integer range 0 to 1000;
-	variable Multiplier : integer;
-
 begin
 	-- Gdy zakończy się impuls 'pulse', wykonywane są obliczenia
 	if (pulse = '0') then
 		-- Obliczanie odległości w cm na podstawie czasu trwania impulsu
-		Result := (Pulse_width / 50) / 58;
+		Result := (Pulse_width*Sound_speed*50/clock_speed);
 		
 		-- Sprawdzenie zakresu odległości i ograniczenie maksymalnej wartości
 		if (Result > 458) then
