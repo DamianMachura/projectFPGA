@@ -6,18 +6,21 @@ use ieee.math_real.all;
 
 -- Counter entity declaration
 entity Counter is
-		generic(n: POSITIVE := 10);
+		generic (
+			n       : positive := 10                        -- Liczba bitów (parametr pozytywny)
+);
+
     Port (
         clk   : in  std_logic;  -- Clock input
 		  enable : in STD_LOGIC;
         reset : in  std_logic;  -- Reset input
-        count : out integer range 0 to n
+        count : out STD_LOGIC_VECTOR( n-1 downto 0)
     );
 end Counter;
 
-architecture rtl of Counter is
+architecture behavioral of Counter is
 
-signal counter_i : integer;
+signal counter_i : std_logic_vector(n-1 downto 0);
   
 begin
 
@@ -25,17 +28,14 @@ begin
   
   COUNTER_PROC : process(clk)
   begin
-    if rising_edge(clk) then
-      if reset = '0' then
-        counter_i <= 0;
-        
-      else
-        if enable = '1' then
-          counter_i <= counter_i + 1;
+     if (reset = '0') then
+            -- Reset the counter to zero when reset is asserted
+            counter_i <= (others => '0');
+        elsif (rising_edge(clk) and clk = '1') then
+			if (enable = '1') then
+            counter_i <= counter_i + 1;
         end if;
-        
-      end if;
-    end if;
+		  end if;
   end process;
 
-end ARCHITECTURE;
+end behavioral;

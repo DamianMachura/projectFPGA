@@ -8,8 +8,8 @@ Entity Range_Sensor is
            fpgaclk : in  STD_LOGIC;          -- Wejście zegara FPGA
            pulse : in  STD_LOGIC;            -- Wejście impulsu ECHO od czujnika ultradźwiękowego
            trigger_out : out  STD_LOGIC;     -- Wyjście sygnału TRIGGER do czujnika
-           reset: in STD_LOGIC;              -- Wejście sygnału reset
-           distance_out: out Unsigned(8 downto 0) -- Wyjście wynikowe z odległością
+           --reset: in STD_LOGIC;              -- Wejście sygnału reset
+           distance_out: out STD_LOGIC_VECTOR(8 downto 0) -- Wyjście wynikowe z odległością
            );
 end Range_Sensor;
 
@@ -21,7 +21,7 @@ COMPONENT Distance_calculator
 		clk: in std_logic;                     -- Wejście zegara
 		Calculation_Reset: in std_logic;       -- Sygnał resetu obliczeń
 		pulse :in std_logic;                   -- Wejście sygnału ECHO z czujnika
-		Distance: out Unsigned(8 downto 0)     -- Wyjście z obliczoną odległością
+		Distance: out STD_LOGIC_VECTOR(8 downto 0)     -- Wyjście z obliczoną odległością
 	);
 END COMPONENT;
 
@@ -29,7 +29,7 @@ END COMPONENT;
 COMPONENT Trigger_Generator
 	PORT(
 		clk : IN std_logic;                  -- Wejście zegara
-		echo : IN std_logic;                 -- Wejście sygnału ECHO do detekcji impulsu
+		--rst : IN std_logic;                 -- Wejście sygnału ECHO do detekcji impulsu
 		trigger : OUT std_logic              -- Wyjście sygnału TRIGGER
 	);
 END COMPONENT;
@@ -43,7 +43,7 @@ begin
 -- Ten komponent generuje sygnał TRIGGER do czujnika ultradźwiękowego
 trig_generator: Trigger_Generator PORT MAP(
 		clk => fpgaclk,            -- Podłączenie zegara FPGA
-		echo => pulse,             -- Podłączenie sygnału ECHO z czujnika
+		--rst => reset,              -- reset
 		trigger => trig_out        -- Wyjście sygnału TRIGGER do czujnika
 	);
 

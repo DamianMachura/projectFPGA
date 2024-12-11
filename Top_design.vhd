@@ -27,17 +27,17 @@ end Top_design;
 
 Architecture behavioral of Top_design is
 
-component Range_Sensor is
-     Port (fpgaclk : in  STD_LOGIC;
-           pulse : in  STD_LOGIC;
-           trigger_out : out  STD_LOGIC;
-			  reset: in STD_LOGIC;
-			  distance_out: out Unsigned(8 downto 0)
-				);
+component Distance_calculator is
+	port(
+		clk : in std_logic;                -- Wejście zegara
+		Calculation_Reset : in std_logic;  -- Sygnał resetu obliczeń
+		pulse : in std_logic;              -- Wejście impulsu z czujnika
+		Distance : out STD_LOGIC_VECTOR(8 downto 0) -- Wyjście z wartością odległości
+	);
 end component;
 
 component segmentdriver
-	Port (  Distance : in Unsigned (8 downto 0);
+	Port (  Distance : in STD_LOGIC_VECTOR(8 downto 0);
            seg_A: out STD_LOGIC;
 			  seg_B: out STD_LOGIC;
 			  seg_C: out STD_LOGIC;
@@ -55,6 +55,7 @@ component segmentdriver
 		PORT(
         clk  : IN  STD_LOGIC;
         reset : IN  STD_LOGIC;
+		  trigger : out std_logic;    -- wyjscie trigger
         servo_pwm: OUT STD_LOGIC
 		  );
 		end component;
@@ -68,14 +69,21 @@ component segmentdriver
     );
 end component ;
 		
-	signal distance_out : Unsigned(8 downto 0);
+	signal distance_out : STD_LOGIC_VECTOR(8 downto 0);
+	signal trig_out: std_logic;
 	signal we : std_logic;
 	signal boxaddr : STD_LOGIC_VECTOR(7 downto 0);
 	signal radar_data : STD_LOGIC_VECTOR(14 downto 0);
 		
 begin
 		
-rangesensor: Range_Sensor PORT MAP(clk, pulse, trigger_out, reset, distance_out);	
+--rangesensor: Range_Sensor PORT MAP(clk, pulse, trigger_out, distance_out);	
+Pulse_width: Distance_calculator PORT MAP(
+		clk => clk,                    -- Podłączenie zegara FPGA
+		calculation_reset => trig_out,     -- Sygnał resetu oparty na sygnale TRIGGER
+		pulse => pulse,                    -- Podłączenie sygnału ECHO z czujnika
+		Distance => distance_out           -- Wyjście z obliczoną odległością
+	);
 	
 segment_driver: segmentdriver PORT MAP( 
 			  Distance => distance_out,
@@ -91,7 +99,9 @@ segment_driver: segmentdriver PORT MAP(
 			  select_Display_C => topseldispC,
 			  select_Display_D => topseldispD,
 			  clk => clk);
-servo_pwm: Servo PORT MAP(clk, reset, servo_out);
+servo_pwm: Servo PORT MAP(clk, reset, trig_out, servo_out);
 blackbox: BlackBoxRAM PORT MAP (clk, we, boxaddr, radar_data);
+
+trigger_out <= trig_out;
 
 end behavioral;

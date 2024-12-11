@@ -1,70 +1,59 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use ieee.math_real.round;
+use ieee.std_logic_unsigned.all;
 
 -- Definicja modułu PWM
 entity pwm is
-  generic (
-    clk_hz : real           -- Częstotliwość zegara wejściowego (w Hz)
-  );
   port (
     clk : in std_logic;       -- Wejście zegara
     rst : in std_logic;       -- Wejście resetu
-    position : in integer range 0 to 256; -- Pozycja, od 0 do maksymalnej liczby kroków
+    position : in std_logic_vector(7 downto 0); -- Pozycja, od 0 do maksymalnej liczby kroków
+	 step_done: out std_logic;
     pwm : out std_logic       -- Wyjście sygnału PWM
   );
 end pwm;
 
 architecture behavioral of pwm is
-
-COMPONENT Counter is
-		generic(n: POSITIVE := 10);
-    Port (
-        clk   : in  std_logic;  -- Clock input
-		  enable : in STD_LOGIC;
-        reset : in  std_logic;  -- Reset input
-        count : out integer range 0 to n
-    );
-end COMPONENT;
 		
   -- Funkcja obliczająca liczbę cykli zegara dla określonego czasu w mikrosekundach
-  function cycles_per_us (us_count : real) return integer is
-  begin
-    return integer(round(clk_hz / 1.0e6 * us_count));
-  end function;
+
 
   -- Stałe dla minimalnej i maksymalnej liczby cykli zegara w zależności od szerokości impulsu
-  constant min_count : integer := cycles_per_us(500.0);    -- Liczba cykli dla minimalnego impulsu
-  constant max_count : integer := cycles_per_us(2500.0);    -- Liczba cykli dla maksymalnego impulsu
-  constant min_max_range_us : real := 2500.0 - 500.0; -- Zakres czasowy impulsu
-  constant step_us : real := min_max_range_us / 255.0; -- Krok w mikrosekundach między pozycjami
-  constant cycles_per_step : positive := cycles_per_us(step_us);  -- Liczba cykli zegara na krok pozycji
+  constant cnt_min : std_logic_vector(16 downto 0) := "00100111000100000";    -- Liczba cykli dla minimalnego impulsu 20000 bo (400 *50)/50e6 = 0.0004s
+  constant cycles_per_step : std_logic_vector(8 downto 0) := "110010000";  -- Liczba cykli zegara na krok pozycji ((max_count - min_count)/255)*50 = 400
 
   -- Maksymalna wartość licznika dla określonej częstotliwości PWM
-  constant counter_max : integer := integer(round(clk_hz / 50.0)) - 1;
-  signal count : integer range 0 to counter_max; -- Licznik sygnału PWM
-
-  signal duty_cycle : integer range 0 to max_count; -- Liczba cykli zegara odpowiadająca wybranej szerokości impulsu
+  signal count : STD_LOGIC_VECTOR(20 downto 0); -- Licznik sygnału PWM
+  signal cnt_max : std_logic_vector(20 downto 0) := "100110001001011010000"; -- 0,025 s 1 000 000
+  signal duty_cycle : STD_LOGIC_VECTOR(16 downto 0); -- Liczba cykli zegara odpowiadająca wybranej szerokości impulsu
 
 begin
 
   -- Proces licznika PWM
-  COUNTER_PROC : Counter
-  generic map (
-    counter_max            -- Ustawia maksymalną wartość licznika
-  )
-  port map (
-    clk => clk,
-    reset => not rst,
-    enable => '1',         -- Licznik zawsze włączony
-    count => count         -- Wartość licznika wyjściowego
-  );
+  COUNTER_PROC : process(clk)
+  begin
+    if rising_edge(clk) then
+      if rst = '0' then
+        count <= (others =>'0');
+
+      else
+        if count < cnt_max then
+          count <= count + 1;
+			 step_done <= '0';
+        else
+		    step_done <= '1';
+          count <= (others => '0');
+        end if;
+
+      end if;
+    end if;
+  end process;
 
   PWM_PROC : process(clk)
   begin
     if rising_edge(clk) then
-      if rst = '1' then
+      if rst = '0' then
         pwm <= '0';  -- Reset sygnału PWM
 
       else
@@ -80,13 +69,16 @@ begin
 
   -- Proces ustawiający wartość szerokości impulsu na podstawie pozycji
   DUTY_CYCLE_PROC : process(clk)
+  variable Multiplier : std_logic_vector(16 downto 0);
   begin
+  
     if rising_edge(clk) then
-      if rst = '1' then
-        duty_cycle <= min_count;  -- Ustawienie szerokości impulsu na minimalną pozycję
+      if rst = '0' then
+        duty_cycle <= cnt_min;  -- Ustawienie szerokości impulsu na minimalną pozycję
 
       else
-        duty_cycle <= position * cycles_per_step + min_count; -- Obliczenie szerokości impulsu na podstawie pozycji
+		  Multiplier := position * cycles_per_step + cnt_min;
+        duty_cycle <= Multiplier; -- Obliczenie szerokości impulsu na podstawie pozycji
       end if;
     end if;
   end process;

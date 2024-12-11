@@ -1,0 +1,73 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "trigger_out",
+					"strict" : false
+				},
+				{
+					"name" : "servo_out",
+					"strict" : false
+				},
+				{
+					"name" : "topseldispA",
+					"strict" : false
+				},
+				{
+					"name" : "topseldispB",
+					"strict" : false
+				},
+				{
+					"name" : "topseldispC",
+					"strict" : false
+				},
+				{
+					"name" : "topseldispD",
+					"strict" : false
+				},
+				{
+					"name" : "topseg_A",
+					"strict" : false
+				},
+				{
+					"name" : "topseg_B",
+					"strict" : false
+				},
+				{
+					"name" : "topseg_C",
+					"strict" : false
+				},
+				{
+					"name" : "topseg_D",
+					"strict" : false
+				},
+				{
+					"name" : "topseg_E",
+					"strict" : false
+				},
+				{
+					"name" : "topseg_F",
+					"strict" : false
+				},
+				{
+					"name" : "topseg_G",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "pulse",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

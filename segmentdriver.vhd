@@ -1,19 +1,11 @@
---library IEEE;
---use IEEE.STD_LOGIC_1164.ALL;
+library IEEE;
 use IEEE.std_logic_unsigned.all;
---use IEEE.STD_LOGIC_ARITH.ALL;
-----use IEEE.numeric_std.ALL;
-library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 entity segmentdriver is
-    Port ( Distance : in unsigned (8 downto 0);
---			  Display_A : in STD_LOGIC_VECTOR (3 downto 0);
---			  Display_B : in STD_LOGIC_VECTOR (3 downto 0);
---	        Display_C : in STD_LOGIC_VECTOR (3 downto 0);
---	        Display_D : in STD_LOGIC_VECTOR (3 downto 0);
+    Port ( Distance : in STD_LOGIC_VECTOR(8 downto 0);
            seg_A: out STD_LOGIC;
 			  seg_B: out STD_LOGIC;
 			  seg_C: out STD_LOGIC;
@@ -49,10 +41,11 @@ architecture Behavioral of segmentdriver is
 	Signal temporary_data : std_logic_vector (3 downto 0);
 	Signal clock_word : std_logic_vector (15 downto 0);
 	Signal slow_clock : std_logic;
-	Signal display : integer := to_integer(Distance);
+	Signal display : integer := to_integer(unsigned(Distance));
 	Signal hundreds : Integer range 0 to 9 := display/100;
 	Signal tens : integer range 0 to 9 := (display - hundreds*100)/10;
 	Signal ones : integer range 0 to 9:= display -(hundreds*100 + tens*10);
+
 	
 	begin		
 			uut: segmentDecoder Port Map(

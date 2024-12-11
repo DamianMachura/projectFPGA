@@ -14,7 +14,7 @@ end sine_rom;
 architecture behavioral of sine_rom is
   
   subtype addr_range is integer range 0 to 2**8 - 1;  -- Zakres adresów pamięci
-  type rom_type is array (addr_range) of unsigned(8 - 1 downto 0); -- Typ ROM, przechowujący wartości sinusoidy
+  type rom_type is array (addr_range) of unsigned(7 downto 0); -- Typ ROM, przechowujący wartości sinusoidy
 
   -- Funkcja inicjalizująca ROM, wypełniając go wartościami sinusoidy
   function init_rom return rom_type is

@@ -1,25 +1,25 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
 
 -- Definicja komponentu Servo
 entity Servo is
   port (
     clk : in std_logic;         -- Wejście zegara
     reset : in std_logic;       -- Wejście sygnału resetu
-    servo_pwm : out std_logic         -- Wyjście sygnału PWM
+	 trigger : out std_logic;    -- wyjscie trigger
+    servo_pwm : out std_logic   -- Wyjście sygnału PWM
   );
 end Servo;
 
 architecture behavioral of Servo is
 COMPONENT pwm is
-  generic (
-    clk_hz : real           -- Częstotliwość zegara wejściowego (w Hz)
-  );
   port (
     clk : in std_logic;       -- Wejście zegara
     rst : in std_logic;       -- Wejście resetu
-    position : in integer range 0 to 256; -- Pozycja, od 0 do maksymalnej liczby kroków
+    position : in std_logic_vector(7 downto 0); -- Pozycja, od 0 do maksymalnej liczby kroków
+	 step_done : out std_logic;
     pwm : out std_logic       -- Wyjście sygnału PWM
   );
 end COMPONENT;
@@ -30,54 +30,63 @@ COMPONENT Counter is
         clk   : in  std_logic;  -- Clock input
 		  enable : in STD_LOGIC;
         reset : in  std_logic;  -- Reset input
-        count : out integer range 0 to n
+        count : out STD_LOGIC_VECTOR(n-1 downto 0)
     );
 end COMPONENT;
 
 COMPONENT sine_rom is
   port (
     clk : in std_logic;                      -- Wejście zegara
-    addr : in unsigned(7 downto 0); -- Adres odczytu w pamięci ROM
-    data : out unsigned(7 downto 0) -- Wartość sinusoidy wyjściowej
+    addr : in std_logic_vector(7 downto 0); -- Adres odczytu w pamięci ROM
+    data : out std_logic_vector(7 downto 0) -- Wartość sinusoidy wyjściowej
   );
 end COMPONENT; 
-  constant clk_hz : real := 50.0e6;        -- Częstotliwość zegara (50 MHz)
-  signal cnt : unsigned(26 downto 0);  -- Sygnalizuje obecny stan licznika
-  signal count : integer;                  -- Wartość licznika do użycia
+  signal step_done : std_logic;        -- sprawdza czy krok jest skończony
+  signal cnt : std_logic_vector(26 downto 0);  -- Sygnalizuje obecny stan licznika
   signal rst : std_logic;
-  signal position : integer range 0 to 255;  -- Pozycja w zakresie od 0 do 255
-  signal rom_addr : unsigned(7 downto 0);   -- Adres dla pamięci ROM
-  signal rom_data : unsigned(7 downto 0);   -- Dane z pamięci ROM
+  signal count : std_logic_vector(20 downto 0);
+  signal position : std_logic_vector(7 downto 0);  -- Pozycja w zakresie od 0 do 255
+  signal rom_addr : std_logic_vector(7 downto 0);   -- Adres dla pamięci ROM
+  signal rom_data : std_logic_vector(7 downto 0);   -- Dane z pamięci ROM
+  signal trig_cnt : std_logic_vector(20 downto 0) := "000000000000111110100";
+  signal cnt_max : std_logic_vector(20 downto 0) := "100110001001011010000";
 
 begin
 
   -- Przypisanie pozycji na podstawie wartości `rom_data`
-  position <= to_integer(rom_data);
-  cnt <= to_unsigned(count, 27);  -- Konwersja liczby całkowitej na `unsigned`
-  rom_addr <= cnt(cnt'left downto cnt'left - 7); -- Wyliczanie adresu do ROM
+  position <= rom_data;
+  rom_addr <= cnt(26 downto 19); -- Wyliczanie adresu do ROM t= 2^20 / 50e6 = 0,02s jeden krok
 
   -- Moduł PWM odpowiedzialny za generowanie sygnału
   SERVO : pwm
-  generic map (
-    clk_hz => clk_hz
-	 )
   port map (
     clk => clk,
-    rst => not reset,    -- Odwrócony sygnał resetu
+    rst => reset,
     position => position,
+	 step_done => step_done,
     pwm => servo_pwm
   );
 
   -- Moduł licznika używany do inkrementacji `count` z określonym zakresem
-  COUNTING : Counter
+--  COUNTING : Process(clk)
+--  begin
+--		if(reset = '0') then
+--		   cnt <= (others => '0');
+--		 elsif(step_done = '1' and cnt < "11111111")  then
+--		cnt <= cnt + 1;
+--		else
+--		cnt <= (others => '0');
+--		end if;
+--end process;
+ COUNTING: Counter
   generic map (
-    2**27            -- Ustawia maksymalną wartość licznika
+    27       -- Ustawia maksymalną wartość licznika
   )
   port map (
     clk => clk,
     reset => reset,
     enable => '1',         -- Licznik zawsze włączony
-    count => count         -- Wartość licznika wyjściowego
+    count => cnt         -- Wartość licznika wyjściowego
   );
 
   -- Pamięć ROM przechowująca wartości sinusoidy, do generowania danych
@@ -87,5 +96,18 @@ begin
     addr => rom_addr,
     data => rom_data
   );
+
+  Trigger_proc : process(clk)
+  begin
+      if rising_edge(clk) then
+      if count < cnt_max then
+          count <= count + 1;
+			 else
+          count <= (others => '0');
+			 end if;
+
+      end if;
+  end process;
+trigger <= '1' when (count < trig_cnt) else '0';
 
 end behavioral;
