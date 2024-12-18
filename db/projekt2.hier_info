@@ -1,12 +1,12 @@
 |Top_design
 clk => Distance_calculator:Pulse_width.clk
 clk => segmentdriver:segment_driver.clk
-clk => Servo:servo_pwm.clk
+clk => Measurement_control:Measurementcontrol.clk
 clk => BlackBoxRAM:blackbox.clk
 pulse => Distance_calculator:Pulse_width.pulse
-trigger_out << Servo:servo_pwm.trigger
-servo_out << Servo:servo_pwm.servo_pwm
-reset => Servo:servo_pwm.reset
+trigger_out << Measurement_control:Measurementcontrol.trigger
+servo_out << Measurement_control:Measurementcontrol.servo_pwm
+reset => Measurement_control:Measurementcontrol.reset
 topseldispA << segmentdriver:segment_driver.select_Display_A
 topseldispB << segmentdriver:segment_driver.select_Display_B
 topseldispC << segmentdriver:segment_driver.select_Display_C
@@ -316,7 +316,7 @@ data_clk[14] <= count[14].DB_MAX_OUTPUT_PORT_TYPE
 data_clk[15] <= count[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Top_design|Servo:servo_pwm
+|Top_design|Measurement_control:Measurementcontrol
 clk => pwm:SERVO.clk
 clk => count[0].CLK
 clk => count[1].CLK
@@ -347,7 +347,7 @@ trigger <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
 servo_pwm <= pwm:SERVO.pwm
 
 
-|Top_design|Servo:servo_pwm|pwm:SERVO
+|Top_design|Measurement_control:Measurementcontrol|pwm:SERVO
 clk => duty_cycle[0].CLK
 clk => duty_cycle[1].CLK
 clk => duty_cycle[2].CLK
@@ -440,55 +440,13 @@ step_done <= step_done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 pwm <= pwm~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Top_design|Servo:servo_pwm|Counter:COUNTING
+|Top_design|Measurement_control:Measurementcontrol|Counter:COUNTING
 clk => counter_i[0].CLK
 clk => counter_i[1].CLK
 clk => counter_i[2].CLK
 clk => counter_i[3].CLK
 clk => counter_i[4].CLK
 clk => counter_i[5].CLK
-clk => counter_i[6].CLK
-clk => counter_i[7].CLK
-clk => counter_i[8].CLK
-clk => counter_i[9].CLK
-clk => counter_i[10].CLK
-clk => counter_i[11].CLK
-clk => counter_i[12].CLK
-clk => counter_i[13].CLK
-clk => counter_i[14].CLK
-clk => counter_i[15].CLK
-clk => counter_i[16].CLK
-clk => counter_i[17].CLK
-clk => counter_i[18].CLK
-clk => counter_i[19].CLK
-clk => counter_i[20].CLK
-clk => counter_i[21].CLK
-clk => counter_i[22].CLK
-clk => counter_i[23].CLK
-clk => counter_i[24].CLK
-clk => counter_i[25].CLK
-clk => counter_i[26].CLK
-enable => counter_i[26].ENA
-enable => counter_i[25].ENA
-enable => counter_i[24].ENA
-enable => counter_i[23].ENA
-enable => counter_i[22].ENA
-enable => counter_i[21].ENA
-enable => counter_i[20].ENA
-enable => counter_i[19].ENA
-enable => counter_i[18].ENA
-enable => counter_i[17].ENA
-enable => counter_i[16].ENA
-enable => counter_i[15].ENA
-enable => counter_i[14].ENA
-enable => counter_i[13].ENA
-enable => counter_i[12].ENA
-enable => counter_i[11].ENA
-enable => counter_i[10].ENA
-enable => counter_i[9].ENA
-enable => counter_i[8].ENA
-enable => counter_i[7].ENA
-enable => counter_i[6].ENA
 enable => counter_i[5].ENA
 enable => counter_i[4].ENA
 enable => counter_i[3].ENA
@@ -501,57 +459,15 @@ reset => counter_i[2].ACLR
 reset => counter_i[3].ACLR
 reset => counter_i[4].ACLR
 reset => counter_i[5].ACLR
-reset => counter_i[6].ACLR
-reset => counter_i[7].ACLR
-reset => counter_i[8].ACLR
-reset => counter_i[9].ACLR
-reset => counter_i[10].ACLR
-reset => counter_i[11].ACLR
-reset => counter_i[12].ACLR
-reset => counter_i[13].ACLR
-reset => counter_i[14].ACLR
-reset => counter_i[15].ACLR
-reset => counter_i[16].ACLR
-reset => counter_i[17].ACLR
-reset => counter_i[18].ACLR
-reset => counter_i[19].ACLR
-reset => counter_i[20].ACLR
-reset => counter_i[21].ACLR
-reset => counter_i[22].ACLR
-reset => counter_i[23].ACLR
-reset => counter_i[24].ACLR
-reset => counter_i[25].ACLR
-reset => counter_i[26].ACLR
 count[0] <= counter_i[0].DB_MAX_OUTPUT_PORT_TYPE
 count[1] <= counter_i[1].DB_MAX_OUTPUT_PORT_TYPE
 count[2] <= counter_i[2].DB_MAX_OUTPUT_PORT_TYPE
 count[3] <= counter_i[3].DB_MAX_OUTPUT_PORT_TYPE
 count[4] <= counter_i[4].DB_MAX_OUTPUT_PORT_TYPE
 count[5] <= counter_i[5].DB_MAX_OUTPUT_PORT_TYPE
-count[6] <= counter_i[6].DB_MAX_OUTPUT_PORT_TYPE
-count[7] <= counter_i[7].DB_MAX_OUTPUT_PORT_TYPE
-count[8] <= counter_i[8].DB_MAX_OUTPUT_PORT_TYPE
-count[9] <= counter_i[9].DB_MAX_OUTPUT_PORT_TYPE
-count[10] <= counter_i[10].DB_MAX_OUTPUT_PORT_TYPE
-count[11] <= counter_i[11].DB_MAX_OUTPUT_PORT_TYPE
-count[12] <= counter_i[12].DB_MAX_OUTPUT_PORT_TYPE
-count[13] <= counter_i[13].DB_MAX_OUTPUT_PORT_TYPE
-count[14] <= counter_i[14].DB_MAX_OUTPUT_PORT_TYPE
-count[15] <= counter_i[15].DB_MAX_OUTPUT_PORT_TYPE
-count[16] <= counter_i[16].DB_MAX_OUTPUT_PORT_TYPE
-count[17] <= counter_i[17].DB_MAX_OUTPUT_PORT_TYPE
-count[18] <= counter_i[18].DB_MAX_OUTPUT_PORT_TYPE
-count[19] <= counter_i[19].DB_MAX_OUTPUT_PORT_TYPE
-count[20] <= counter_i[20].DB_MAX_OUTPUT_PORT_TYPE
-count[21] <= counter_i[21].DB_MAX_OUTPUT_PORT_TYPE
-count[22] <= counter_i[22].DB_MAX_OUTPUT_PORT_TYPE
-count[23] <= counter_i[23].DB_MAX_OUTPUT_PORT_TYPE
-count[24] <= counter_i[24].DB_MAX_OUTPUT_PORT_TYPE
-count[25] <= counter_i[25].DB_MAX_OUTPUT_PORT_TYPE
-count[26] <= counter_i[26].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Top_design|Servo:servo_pwm|sine_rom:SINE
+|Top_design|Measurement_control:Measurementcontrol|sine_rom:SINE
 clk => data[0]~reg0.CLK
 clk => data[1]~reg0.CLK
 clk => data[2]~reg0.CLK

@@ -3,17 +3,17 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
 
--- Definicja komponentu Servo
-entity Servo is
+-- Definicja komponentu Kontrola Pomiaru
+entity Measurement_control is
   port (
     clk : in std_logic;         -- Wejście zegara
     reset : in std_logic;       -- Wejście sygnału resetu
 	 trigger : out std_logic;    -- wyjscie trigger
     servo_pwm : out std_logic   -- Wyjście sygnału PWM
   );
-end Servo;
+end Measurement_control;
 
-architecture behavioral of Servo is
+architecture behavioral of Measurement_control is
 COMPONENT pwm is
   port (
     clk : in std_logic;       -- Wejście zegara
@@ -42,7 +42,7 @@ COMPONENT sine_rom is
   );
 end COMPONENT; 
   signal step_done : std_logic;        -- sprawdza czy krok jest skończony
-  signal cnt : std_logic_vector(26 downto 0);  -- Sygnalizuje obecny stan licznika
+  signal cnt : std_logic_vector(5 downto 0);  -- Sygnalizuje obecny stan licznika
   signal rst : std_logic;
   signal count : std_logic_vector(20 downto 0);
   signal position : std_logic_vector(7 downto 0);  -- Pozycja w zakresie od 0 do 255
@@ -55,7 +55,7 @@ begin
 
   -- Przypisanie pozycji na podstawie wartości `rom_data`
   position <= rom_data;
-  rom_addr <= cnt(26 downto 19); -- Wyliczanie adresu do ROM t= 2^20 / 50e6 = 0,02s jeden krok
+  rom_addr <= cnt*"11"; -- Wyliczanie adresu do ROM t= 2^20 / 50e6 = 0,02s jeden krok
 
   -- Moduł PWM odpowiedzialny za generowanie sygnału
   SERVO : pwm
@@ -68,24 +68,14 @@ begin
   );
 
   -- Moduł licznika używany do inkrementacji `count` z określonym zakresem
---  COUNTING : Process(clk)
---  begin
---		if(reset = '0') then
---		   cnt <= (others => '0');
---		 elsif(step_done = '1' and cnt < "11111111")  then
---		cnt <= cnt + 1;
---		else
---		cnt <= (others => '0');
---		end if;
---end process;
  COUNTING: Counter
   generic map (
-    27       -- Ustawia maksymalną wartość licznika
+    6       -- Ustawia maksymalną wartość licznika
   )
   port map (
     clk => clk,
     reset => reset,
-    enable => '1',         -- Licznik zawsze włączony
+    enable => step_done,         -- Licznik zawsze włączony
     count => cnt         -- Wartość licznika wyjściowego
   );
 

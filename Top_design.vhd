@@ -51,7 +51,7 @@ component segmentdriver
 			  select_Display_D: out STD_LOGIC;
 			  clk: in std_logic);
 	end component;
-	Component Servo
+	Component Measurement_control
 		PORT(
         clk  : IN  STD_LOGIC;
         reset : IN  STD_LOGIC;
@@ -99,7 +99,7 @@ segment_driver: segmentdriver PORT MAP(
 			  select_Display_C => topseldispC,
 			  select_Display_D => topseldispD,
 			  clk => clk);
-servo_pwm: Servo PORT MAP(clk, reset, trig_out, servo_out);
+Measurementcontrol: Measurement_control PORT MAP(clk, reset, trig_out, servo_out);
 blackbox: BlackBoxRAM PORT MAP (clk, we, boxaddr, radar_data);
 
 trigger_out <= trig_out;

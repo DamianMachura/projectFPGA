@@ -60,9 +60,8 @@ begin
 	-- Gdy zakończy się impuls 'pulse', wykonywane są obliczenia
 	if (pulse = '0') then
 		-- Obliczanie odległośc w cm na podstawie czasu trwania impulsu
-		short_width := Pulse_width(20 downto 12);
+		short_width := Pulse_width(21 downto 13);
 		Multiplier :=  short_width * Sound_speed;
-		--Multiplier := Pulse_width * "11";
 		Result := to_integer(unsigned(Multiplier(16 downto 8)));
 		
 		-- Sprawdzenie zakresu odległości i ograniczenie maksymalnej wartości
