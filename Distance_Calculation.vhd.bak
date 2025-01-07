@@ -1,46 +1,76 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
 
-entity Distance_calculation is
-    Port ( clk : in STD_LOGIC;
-           Calculation_Reset : in STD_LOGIC;
-			  Pulse : in STD_LOGIC;
-			  distance : out STD_LOGIC_VECTOR( 8 downto 0)));
-end Distance_calculation;
+-- Definicja modułu Distance_calculator
+entity Distance_calculator is
+	port(
+		clk : in std_logic;                -- Wejście zegara
+		Calculation_Reset : in std_logic;  -- Sygnał resetu obliczeń
+		pulse : in std_logic;              -- Wejście impulsu z czujnika
+		Distance : out STD_LOGIC_VECTOR(8 downto 0) -- Wyjście z wartością odległości
+	);
+end Distance_calculator;
 
-architecture Behavioral of Distance_calculation is
+architecture Behavioral of Distance_calculator is
+
+-- Definicja komponentu Counter
 component Counter is
-		generic(n: POSITIVE := 10);
+	generic(
+		n : POSITIVE := 10  -- Parametr dla zakresu licznika
+	);
+	port(
+		clk   : in  std_logic;  -- Wejście zegara
+		enable : in STD_LOGIC;  -- Sygnał włączający pracę licznika
+      reset : in  std_logic;  -- Sygnał resetu licznika
+      count : out STD_LOGIC_VECTOR( n-1 downto 0) -- Wyjście z aktualną wartością licznika
+	);
+end component;
+
+component SoundSpeedROM is
     Port (
-        clk   : in  std_logic;  -- Clock input
-		  enable : in STD_LOGIC;
-        reset : in  std_logic;  -- Reset input
-        count : out std_logic_vector(n-1 downto 0)  -- 4-bit counter output
+        clk : in STD_LOGIC;              -- sygnał zegarowy
+        address : in integer range 0 to 50; -- adres 
+        data_out : out STD_LOGIC_VECTOR(8 downto 0) -- dane wyjściowe 
     );
 end component;
 
-Signal Pulse_width : STD_LOGIC_VECTOR(21 downto 0);
-
+-- Sygnał wewnętrzny do przechowywania szerokości impulsu
+signal Pulse_width : std_logic_vector(21 downto 0);
+signal Sound_speed : STD_LOGIC_VECTOR(8 downto 0);
+signal Temperature : integer range 0 to 50 := 20;
 begin
-CounterPulse : Counter generic map(22) port map(clk,pulse,not Calculation_Reset, Pulse_width);
 
-Distance_calculations: process(pulse)
-									variable result: integer;
-									variable multiplier : STD_LOGIC_VECTOR(23 downto 0)
-									
-									begin
-												if(pulse = '0') then
-															multiplier := Pulse_width * "11";
-															result := to_integer(unsigned(multiplier(23 downto 13)))
-																	if(result > 458) then
-																			distance <= "111111111";
-																		else
-																			distance <= STD_LOGIC_VECTOR(to_unasigned(result,9));
-																	end if;
-												end if;
-					end process Distance_calculations;
-    
+Counter_pulse : Counter 
+	generic map(22)                -- Zakres licznika ustawiony na 2^22
+	port map(clk, pulse, not Calculation_Reset, Pulse_width);
+Sound_rom : SoundSpeedROM Port map (clk, Temperature, Sound_speed);
+
+-- Proces obliczający odległość
+Distance_calculator : process(pulse)
+	
+	-- Zmienne pomocnicze do obliczeń
+	variable Result : integer;--std_logic_vector(8 downto 0);
+	--variable short_width : std_logic_vector(8 downto 0);
+	variable Multiplier: std_logic_vector(30 downto 0);
+	
+begin
+	
+	-- Gdy zakończy się impuls 'pulse', wykonywane są obliczenia
+	if (pulse = '0') then
+		-- Obliczanie odległośc w cm na podstawie czasu trwania impulsu
+		--short_width := Pulse_width(21 downto 13);
+		Multiplier :=  Pulse_width * Sound_speed;
+		Result := to_integer(unsigned(Multiplier(29 downto 20)));
+		
+		-- Sprawdzenie zakresu odległości i ograniczenie maksymalnej wartości
+		if (Result > 200) then --"111001010"
+			Distance <= "000000000";          -- Przekroczenie zakresu
+		else
+			Distance <= STD_LOGIC_VECTOR(to_unsigned(Result,9)); -- Wynik konwersji do 9-bitowej liczby unsigned
+		end if;
+	end if;
+end process;
 
 end Behavioral;

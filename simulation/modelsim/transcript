@@ -1,30 +1,1008 @@
-# Compile of sin_table.vhd was successful.
-# Compile of clk64kHz.vhd was successful.
-# Compile of servo_pwm_clk64kHz.vhd was successful.
-# Compile of servo_pwm_clk64kHz_tb.vht was successful.
-# 4 compiles, 0 failed with no errors.
-vsim -gui work.servo_pwm_clk64khz_tb
-# vsim -gui work.servo_pwm_clk64khz_tb 
-# Start time: 12:57:14 on Oct 28,2024
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 19:47:45 on Dec 20,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.servo_pwm_clk64khz_tb(behavioral)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.servo_pwm_clk64khz(behavioral)
-# Loading work.clk64khz(behavioral)
-# ** Warning: (vsim-3473) Component instance "servo_pwm_map : pwm" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /servo_pwm_clk64khz_tb/servo File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd
-# ** Warning: (vsim-3473) Component instance "count_delay : Counter" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /servo_pwm_clk64khz_tb/servo File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/output_files/servo_pwm_clk64kHz.vhd
 # Loading ieee.numeric_std(body)
-# Loading work.sin_table(rtl)
-# ** Warning: (vsim-8684) No drivers exist on out port /servo_pwm_clk64khz_tb/servo/servo, and its initial value is not used.
-# Therefore, simulation behavior may occur that is not in compliance with
-# the VHDL standard as the initial values come from the base signal /servo_pwm_clk64khz_tb/output.
-add wave -position end  sim:/servo_pwm_clk64khz_tb/output
-add wave -position end  sim:/servo_pwm_clk64khz_tb/clock
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft11wfvz".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft11wfvz
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 60 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.soundspeedrom
+# End time: 20:04:10 on Dec 20,2024, Elapsed time: 0:16:25
+# Errors: 0, Warnings: 23
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.soundspeedrom 
+# Start time: 20:04:10 on Dec 20,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftcd118i".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftcd118i
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 30 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# Compile of measurement_tb.vhd failed with 3 errors.
+# Compile of measurement_tb.vhd failed with 3 errors.
+# Compile of measurement_tb.vhd failed with 3 errors.
+# Compile of measurement_tb.vhd failed with 3 errors.
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# End time: 21:06:40 on Dec 20,2024, Elapsed time: 1:02:30
+# Errors: 0, Warnings: 22
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 21:06:40 on Dec 20,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlfti16j6j".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfti16j6j
+add wave -position end  sim:/measurement_tb/reset
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/Dist
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# Break key hit
+# Break in Process echo_proc at C:/Users/damia/OneDrive/Desktop/projek FPGAt/simulation/modelsim/pwm_servo_64khz_tb/measurement_tb.vhd line 43
+run
+# Break key hit
+# Break in Process echo_proc at C:/Users/damia/OneDrive/Desktop/projek FPGAt/simulation/modelsim/pwm_servo_64khz_tb/measurement_tb.vhd line 43
+# Compile of measurement_tb.vhd failed with 4 errors.
+# Compile of measurement_tb.vhd failed with 4 errors.
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# End time: 21:17:00 on Dec 20,2024, Elapsed time: 0:10:20
+# Errors: 0, Warnings: 15
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 21:17:00 on Dec 20,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftj35dfh".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftj35dfh
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+# Break key hit
+# Break in Process echo_proc at C:/Users/damia/OneDrive/Desktop/projek FPGAt/simulation/modelsim/pwm_servo_64khz_tb/measurement_tb.vhd line 44
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# End time: 11:03:06 on Dec 30,2024, Elapsed time: 229:46:06
+# Errors: 0, Warnings: 13
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 11:03:06 on Dec 30,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftx8vsjb".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftx8vsjb
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 30 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# End time: 13:35:52 on Dec 30,2024, Elapsed time: 2:32:46
+# Errors: 0, Warnings: 22
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 13:35:52 on Dec 30,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft5tcbq0".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft5tcbq0
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 30 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# Compile of measurement_tb.vhd was successful.
+# Break key hit
+# Load canceled
+run
+# Compile of measurement_tb.vhd was successful.
+# Break key hit
+# Break in Process line__34 at C:/Users/damia/OneDrive/Desktop/projek FPGAt/SoundSpeedROM.vhd line 34
+run
+run
+# Load canceled
+vsim -gui work.measurement_tb
+# End time: 13:46:57 on Dec 30,2024, Elapsed time: 0:11:05
+# Errors: 0, Warnings: 23
+# vsim -gui work.measurement_tb 
+# Start time: 13:46:57 on Dec 30,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft49j0ed".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft49j0ed
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 17:28:46 on Dec 30,2024, Elapsed time: 3:41:49
+# Errors: 0, Warnings: 10
+# vsim -gui work.measurement_tb 
+# Start time: 17:28:46 on Dec 30,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftx0ycse".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftx0ycse
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# Break key hit
+# Break in Process echo_proc at C:/Users/damia/OneDrive/Desktop/projek FPGAt/simulation/modelsim/pwm_servo_64khz_tb/measurement_tb.vhd line 43
+# Break key hit
+# Compile of measurement_tb.vhd failed with 1 errors.
+# Compile of measurement_tb.vhd failed with 1 errors.
+# Compile of measurement_tb.vhd failed with 1 errors.
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# End time: 11:32:23 on Jan 02,2025, Elapsed time: 66:03:37
+# Errors: 0, Warnings: 12
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 11:32:23 on Jan 02,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftn7agxy".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftn7agxy
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# End time: 11:45:53 on Jan 02,2025, Elapsed time: 0:13:30
+# Errors: 0, Warnings: 16
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 11:45:53 on Jan 02,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft3hh2sd".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft3hh2sd
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 12:06:42 on Jan 02,2025, Elapsed time: 0:20:49
+# Errors: 0, Warnings: 16
+# vsim -gui work.measurement_tb 
+# Start time: 12:06:42 on Jan 02,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+#           Attempting to use alternate WLF file "./wlft4vnce8".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft4vnce8
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+run
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 12:10:38 on Jan 02,2025, Elapsed time: 0:03:56
+# Errors: 0, Warnings: 10
+# vsim -gui work.measurement_tb 
+# Start time: 12:10:38 on Jan 02,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft1nnwt3".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft1nnwt3
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of Distance_Calculation.vhd failed with 1 errors.
+# Compile of Distance_Calculation.vhd failed with 2 errors.
+# Compile of Distance_Calculation.vhd failed with 2 errors.
+# Compile of Distance_Calculation.vhd failed with 1 errors.
+# Compile of Distance_Calculation.vhd failed with 1 errors.
+# Compile of Distance_Calculation.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 17:53:37 on Jan 02,2025, Elapsed time: 5:42:59
+# Errors: 0, Warnings: 15
+# vsim -gui work.measurement_tb 
+# Start time: 17:53:37 on Jan 02,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftemtvac".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftemtvac
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+# Compile of Distance_Calculation.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.measurement_tb
+# End time: 17:57:50 on Jan 04,2025, Elapsed time: 48:04:13
+# Errors: 0, Warnings: 10
+# vsim -gui work.measurement_tb 
+# Start time: 17:57:50 on Jan 04,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft4x6r5m".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft4x6r5m
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 18:03:05 on Jan 04,2025, Elapsed time: 0:05:15
+# Errors: 0, Warnings: 10
+# vsim -gui work.measurement_tb 
+# Start time: 18:03:05 on Jan 04,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftjgebgy".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftjgebgy
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 18:10:50 on Jan 04,2025, Elapsed time: 0:07:45
+# Errors: 0, Warnings: 10
+# vsim -gui work.measurement_tb 
+# Start time: 18:10:50 on Jan 04,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftr6btej".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftr6btej
+# Load canceled
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 18:14:17 on Jan 04,2025, Elapsed time: 0:03:27
+# Errors: 0, Warnings: 10
+# vsim -gui work.measurement_tb 
+# Start time: 18:14:17 on Jan 04,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft65729m".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft65729m
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 17:56:12 on Jan 05,2025, Elapsed time: 23:41:55
+# Errors: 0, Warnings: 10
+# vsim -gui work.measurement_tb 
+# Start time: 17:56:12 on Jan 05,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/position
+add wave -position end  sim:/measurement_tb/reset
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft7dbyz8".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft7dbyz8
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# Compile of measurement.vhd was successful.
+# Compile of measurement_tb.vhd was successful.
+# Compile of Counter.vhd was successful.
+# Compile of Distance_Calculation.vhd was successful.
+# Compile of sine_rom.vhd was successful.
+# Compile of SoundSpeedROM.vhd was successful.
+# Compile of Top_design.vhd was successful.
+# Compile of pwm.vhd was successful.
+# 8 compiles, 0 failed with no errors.
+run
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design
+# End time: 18:03:55 on Jan 05,2025, Elapsed time: 0:07:43
+# Errors: 0, Warnings: 11
+# vsim -gui work.counter work.distance_calculator work.measurement_control work.measurement_tb work.pwm work.sine_rom work.soundspeedrom work.top_design 
+# Start time: 18:03:55 on Jan 05,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.measurement_control(behavioral)
+# Loading work.measurement_tb(test)
+# Loading work.pwm(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.soundspeedrom(behavioral)
+# Loading work.top_design(behavioral)
+# ** Warning: (vsim-3473) Component instance "segment_driver : segmentdriver" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+# ** Warning: (vsim-3473) Component instance "blackbox : BlackBoxRAM" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /top_design File: C:/Users/damia/OneDrive/Desktop/projek FPGAt/Top_design.vhd
+add wave -position end  sim:/measurement_tb/clock
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlftfbr7tg".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftfbr7tg
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/position
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /top_design/Measurementcontrol
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_control
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+add wave -position end  sim:/top_design/servo_out
 run
 run
 run
@@ -33,39 +1011,60 @@ run
 run
 run
 run
+add wave -position end  sim:/measurement_tb/reset
+# Compile of measurement_tb.vhd was successful.
+vsim -gui work.measurement_tb
+# End time: 18:20:56 on Jan 05,2025, Elapsed time: 0:17:01
+# Errors: 0, Warnings: 16
+# vsim -gui work.measurement_tb 
+# Start time: 18:20:56 on Jan 05,2025
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.measurement_tb(test)
+# Loading work.measurement_control(behavioral)
+# Loading work.pwm(behavioral)
+# Loading ieee.math_real(body)
+# Loading work.counter(behavioral)
+# Loading work.sine_rom(behavioral)
+# Loading work.distance_calculator(behavioral)
+# Loading work.soundspeedrom(behavioral)
+add wave -position end  sim:/measurement_tb/clock
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: damia  Hostname: DESKTOP-EQJ59QE  ProcessID: 25080
+#           Attempting to use alternate WLF file "./wlft6ar8xz".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft6ar8xz
+add wave -position end  sim:/measurement_tb/out_q
+add wave -position end  sim:/measurement_tb/echo
+add wave -position end  sim:/measurement_tb/position
+add wave -position end  sim:/measurement_tb/Dist
+add wave -position 1  sim:/measurement_tb/reset
 run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 0  Instance: /measurement_tb/uut
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 30 ns  Iteration: 0  Instance: /measurement_tb/uut/SERVO

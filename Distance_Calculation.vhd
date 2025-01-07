@@ -40,11 +40,12 @@ end component;
 signal Pulse_width : std_logic_vector(21 downto 0);
 signal Sound_speed : STD_LOGIC_VECTOR(8 downto 0);
 signal Temperature : integer range 0 to 50 := 20;
+signal not_calculation_reset : std_logic;
 begin
-
+not_calculation_reset <= not Calculation_Reset;
 Counter_pulse : Counter 
 	generic map(22)                -- Zakres licznika ustawiony na 2^22
-	port map(clk, pulse, not Calculation_Reset, Pulse_width);
+	port map(clk, pulse, not_calculation_reset, Pulse_width);
 Sound_rom : SoundSpeedROM Port map (clk, Temperature, Sound_speed);
 
 -- Proces obliczający odległość
@@ -60,12 +61,12 @@ begin
 	-- Gdy zakończy się impuls 'pulse', wykonywane są obliczenia
 	if (pulse = '0') then
 		-- Obliczanie odległośc w cm na podstawie czasu trwania impulsu
-		short_width := Pulse_width(21 downto 13);
+	   short_width := Pulse_width(21 downto 13);
 		Multiplier :=  short_width * Sound_speed;
-		Result := to_integer(unsigned(Multiplier(16 downto 8)));
+		Result := to_integer(unsigned(Multiplier(16 downto 7)));
 		
 		-- Sprawdzenie zakresu odległości i ograniczenie maksymalnej wartości
-		if (Result > 400) then --"111001010"
+		if (Result > 200) then --"111001010"
 			Distance <= "000000000";          -- Przekroczenie zakresu
 		else
 			Distance <= STD_LOGIC_VECTOR(to_unsigned(Result,9)); -- Wynik konwersji do 9-bitowej liczby unsigned

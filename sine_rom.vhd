@@ -6,8 +6,8 @@ use ieee.math_real.all;
 entity sine_rom is
   port (
     clk : in std_logic;                      -- Wejście zegara
-    addr : in unsigned(7 downto 0); -- Adres odczytu w pamięci ROM
-    data : out unsigned(7 downto 0) -- Wartość sinusoidy wyjściowej
+    addr : in std_logic_vector(7 downto 0); -- Adres odczytu w pamięci ROM
+    data : out std_logic_vector(7 downto 0) -- Wartość sinusoidy wyjściowej
   );
 end sine_rom; 
 
@@ -42,7 +42,7 @@ begin
   ROM_PROC : process(clk)
   begin
     if rising_edge(clk) then
-      data <= rom(to_integer(unsigned(addr)));  -- Odczytanie wartości sinusoidy na podstawie adresu
+      data <= std_logic_vector(unsigned(rom(to_integer(unsigned(addr)))));  -- Odczytanie wartości sinusoidy na podstawie adresu
     end if;
   end process;
 

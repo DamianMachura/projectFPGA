@@ -3,35 +3,35 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
-Slack : -43.741
-TNS   : -172.833
+Slack : -37.150
+TNS   : -145.707
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -7.749
-TNS   : -345.546
+Slack : -7.533
+TNS   : -359.549
 
 Type  : Slow 1200mV 85C Model Setup 'pulse'
-Slack : -7.151
-TNS   : -61.234
+Slack : -6.997
+TNS   : -53.243
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.446
+Slack : 0.445
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
-Slack : 0.454
+Slack : 0.453
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'pulse'
-Slack : 2.717
+Slack : 2.380
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'clk'
-Slack : -3.396
-TNS   : -73.931
+Slack : -3.376
+TNS   : -68.607
 
 Type  : Slow 1200mV 85C Model Removal 'clk'
-Slack : 2.865
+Slack : 2.360
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
@@ -40,26 +40,26 @@ TNS   : -156.388
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pulse'
 Slack : -3.000
-TNS   : -16.383
+TNS   : -14.896
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
 Slack : -1.487
 TNS   : -14.870
 
 Type  : Slow 1200mV 0C Model Setup 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
-Slack : -40.081
-TNS   : -157.989
+Slack : -33.858
+TNS   : -132.101
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -7.086
-TNS   : -311.190
+Slack : -6.857
+TNS   : -325.259
 
 Type  : Slow 1200mV 0C Model Setup 'pulse'
-Slack : -6.677
-TNS   : -56.997
+Slack : -6.499
+TNS   : -49.142
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.398
+Slack : 0.397
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
@@ -67,15 +67,15 @@ Slack : 0.403
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'pulse'
-Slack : 2.511
+Slack : 2.195
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'clk'
-Slack : -3.092
-TNS   : -67.243
+Slack : -3.072
+TNS   : -62.073
 
 Type  : Slow 1200mV 0C Model Removal 'clk'
-Slack : 2.600
+Slack : 2.138
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
@@ -84,51 +84,51 @@ TNS   : -156.388
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pulse'
 Slack : -3.000
-TNS   : -16.383
+TNS   : -14.896
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
 Slack : -1.487
 TNS   : -14.870
 
 Type  : Fast 1200mV 0C Model Setup 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
-Slack : -18.880
-TNS   : -73.880
-
-Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -2.632
-TNS   : -103.145
+Slack : -16.061
+TNS   : -62.313
 
 Type  : Fast 1200mV 0C Model Setup 'pulse'
-Slack : -2.471
-TNS   : -20.801
+Slack : -2.451
+TNS   : -18.259
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -2.410
+TNS   : -106.182
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.186
+Slack : 0.185
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
-Slack : 0.186
+Slack : 0.187
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'pulse'
-Slack : 0.998
+Slack : 0.848
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'clk'
-Slack : -0.883
-TNS   : -19.129
+Slack : -0.863
+TNS   : -16.566
 
 Type  : Fast 1200mV 0C Model Removal 'clk'
-Slack : 1.246
+Slack : 1.015
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -111.942
+TNS   : -111.894
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pulse'
 Slack : -3.000
-TNS   : -13.526
+TNS   : -12.312
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'segmentdriver:segment_driver|clock_divider:uut1|count[15]'
 Slack : -1.000
