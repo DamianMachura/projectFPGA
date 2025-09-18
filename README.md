@@ -3,7 +3,7 @@ Projekt edukacyjny FPGA – zestaw przykładów i projektów w HDL (np. VHDL/Ver
 ## Cele projektu
 - stworzenie narzędzia pomiarowego na czujniku ultradżwiękowym, zapis do DDRAM
 - Implementacja prostych układów logicznych (np. liczniki, generatory sygnałów)
-- Symulacja i testowanie na poziomie RTL
+- Symulacja i testowanie na poziomie RTL, w folderze simulations jest testbench, nalerzy załadować do modelSim lub podobnego programu.
 
 ## Wymagania
 - Narzędzie do syntezy FPGA: Intel Quartus
